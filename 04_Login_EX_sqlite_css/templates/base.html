@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+  <head>
+		<title>flask Service</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='file.css') }}">
+  </head>
+  <body><center><div>
+  	<hr width="100%" color="black"/>
+  	<center>
+  		<img src="{{ url_for('static',filename='images/naver.png')}}" width="50" />
+  		<h3>Naver Blogpage Open</h3>
+  	</center>
+  	<hr width="100%" color="black"/>
+    <a href="/"><img src="{{ url_for('static',filename='images/home.png')}}" width="30" /></a>
+	</div></center>
+    <hr>
+    {% block content %}{% endblock %}
+  </body>
+</html>

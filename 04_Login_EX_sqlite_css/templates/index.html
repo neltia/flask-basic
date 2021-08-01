@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+	{% extends "base.html" %}
+	{% block content %}
+	{% if session['logged_in'] %}
+		{% if data %}
+			<h3>{{ data }}</h3>
+		{% else %}
+		<center>
+			<button type="button" id=btn onclick="location.href='/logout'">Logout</button>
+			<form action="" method="POST" id="message">
+			  <br><input type="username" name="username" placeholder="Blog id">
+			  <input type="submit" value="Open">
+			</form>
+		</center>
+		{% endif %}
+
+	{% else %}
+	<center>
+		<button type="button" id=btn onclick="location.href='/login'">Login</button>
+		<button type="button" id=btn onclick="location.href='/register'">Register</button>
+		<div id="message">
+			<p>로그인하지 않은 상태입니다. </p>
+			<p>서비스를 이용하려면 로그인해주세요.</p>
+		</div>
+		</div>
+	</center>
+	{% endif %}
+	{% endblock %}
+</html>
