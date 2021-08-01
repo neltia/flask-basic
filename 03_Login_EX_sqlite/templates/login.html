@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+	{% extends "base.html" %}
+	{% block content %}
+	{% if session['logged_in'] %}
+		<p>이미 로그인하셨습니다.</p>
+	{% else %}
+	<center><div>
+		<h2>Login</h2>
+		<form action="/login" method="POST">
+		  <input type="username" name="username" placeholder="Username">
+		  <input type="password" name="password" placeholder="Password">
+		  <br><br>
+		  <input type="submit" value="로그인">
+		</form>
+	</div></center>
+	{% endif %}
+	{% endblock %}
+</html>
