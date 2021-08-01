@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<body style="text-align: center;">
+    <h3>Download File!</h3>
+    <hr width="100%" color="black"/>
+
+    <img src="{{ url_for('static',filename='images/download.png') }}", width="70")/><br><br>
+
+    <form action = "http://localhost:5000/fileDown" method = "POST"
+      enctype = "multipart/form-data" class="form-inline">
+      <div class="col text-center">
+        <input type = "text" name = "file" class="form-control"/>
+        <input type = "submit" class="btn btn-outline-dark"/>
+      </div>
+    </form><br><br>
+
+    <hr width="100%" color="black"/>
+    <h3>File List</h3>
+    <hr width="100%" color="black"/>
+    <img src="{{ url_for('static',filename='images/list.png') }}", width="50")/><br>
+    
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <ul class="list-group border border-dark rounded">
+            {% for n in files %}
+            <li class="list-group-item">{{n}}
+              <span class="badge badge-primary">{{n.split(".")[1].lower()}}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+{% endblock %}
