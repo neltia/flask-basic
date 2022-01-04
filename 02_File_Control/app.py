@@ -1,5 +1,9 @@
 from flask import Flask, render_template, request, send_file
-from werkzeug import secure_filename
+try:
+	from werkzeug.utils import secure_filename
+except:
+	from werkzeug import secure_filename
+
 import os
 app = Flask(__name__)
 #app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 #파일 업로드 용량 제한 단위:바이트
@@ -45,7 +49,7 @@ def down_file():
 		for x in files:
 			if(x==request.form['file']):
 				sw=1
-				path = "./uploads/" 
+				path = "./uploads/"
 				return send_file(path + request.form['file'],
 						attachment_filename = request.form['file'],
 						as_attachment=True)
